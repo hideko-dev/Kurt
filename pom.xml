@@ -48,6 +48,16 @@
                         <goals>
                             <goal>shade</goal>
                         </goals>
+                        <configuration>
+                            <filters>
+                                <filter>
+                                    <artifact>*:*</artifact>
+                                    <excludes>
+                                        <exclude>org/bukkit/craftbukkit/**</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+                        </configuration>
                     </execution>
                 </executions>
             </plugin>
@@ -83,34 +93,15 @@
             <artifactId>kotlin-stdlib-jdk8</artifactId>
             <version>${kotlin.version}</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.bukkit.craftbukkit</groupId>-->
-<!--            <artifactId>v1_8_8_R3</artifactId>-->
-<!--            <version>LATEST</version>-->
-<!--            <systemPath>${project.basedir}\libs\craftbukkit.jar</systemPath>-->
-<!--            <scope>system</scope>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.bukkit.craftbukkit</groupId>
+            <artifactId>v1_8_8_R3</artifactId>
+            <version>LATEST</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libs/craftbukkit.jar</systemPath>
+            <optional>true</optional>
+        </dependency>
     </dependencies>
-    <profiles>
-        <profile>
-            <id>include-craftbukkit</id>
-            <activation>
-                <property>
-                    <name>include-craftbukkit</name>
-                    <value>true</value>
-                </property>
-            </activation>
-            <dependencies>
-                <dependency>
-                    <groupId>org.bukkit.craftbukkit</groupId>
-                    <artifactId>v1_8_8_R3</artifactId>
-                    <version>LATEST</version>
-                    <scope>system</scope>
-                    <systemPath>${project.basedir}/libs/craftbukkit.jar</systemPath>
-                    <optional>true</optional>
-                </dependency>
-            </dependencies>
-        </profile>
-    </profiles>
+
 
 </project>
