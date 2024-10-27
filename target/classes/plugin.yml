@@ -1,0 +1,4 @@
+name: Kurt
+version: '1.0'
+main: rest.hideko.kurt.Kurt
+api-version: '1.20'
